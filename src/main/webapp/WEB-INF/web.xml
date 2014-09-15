@@ -5,19 +5,25 @@
 <web-app>
 
 	<display-name>LearnRS Complete Guide</display-name>
-	<context-param> <param-name>contextConfigLocation</param-name> <param-value>WEB-INF/beans.xml</param-value> 
-		</context-param> <listener> <listener-class> org.springframework.web.context.ContextLoaderListener 
-		</listener-class> </listener>
+	<!-- Beans.xml used to define the service -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>WEB-INF/beans.xml</param-value>
+	</context-param>
+	<!-- Initializing Spring root WebApplicationContext -->
+	<listener>
+		<listener-class> org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<!-- webservlet -->
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
 		<display-name>CXF Servlet</display-name>
 		<servlet-class>
 			org.apache.cxf.transport.servlet.CXFServlet
 		</servlet-class>
-		<!-- <init-param>
-			<param-name>config-location</param-name>
-			<param-value>/WEB-INF/beans.xml</param-value>
-		</init-param> -->
+		<!-- <init-param> <param-name>config-location</param-name> <param-value>/WEB-INF/beans.xml</param-value> 
+			</init-param> -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

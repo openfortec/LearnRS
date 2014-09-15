@@ -11,7 +11,6 @@ public class MyFirstRsService {
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String getMessage() {
-		System.out.println("HAIII");
 		return "<p>Hello FIRST RESTFUL Web Service</p>";
 	}
 }
