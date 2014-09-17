@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:jaxrs="http://cxf.apache.org/jaxrs"
-  xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://cxf.apache.org/jaxrs
 http://cxf.apache.org/schemas/jaxrs.xsd">
-<jaxrs:server id="customerService" address=	"">
-    <jaxrs:serviceBeans>
-      <ref bean="customerBean" />
-      <ref bean="customerBean1" />
-    </jaxrs:serviceBeans>
-  </jaxrs:server>
- 
-  <bean id="customerBean" class="learn.sanga.rs.sample.MyFirstRsService" />
-  <bean id="customerBean1" class="learn.sanga.rs.sample.MySecondRsService" />
+
+<!-- end point configuration -->
+	<jaxrs:server id="customerService" address="">
+		<jaxrs:serviceBeans>
+			<ref bean="customerBean" />
+			<ref bean="customerBean1" />
+				<ref bean="categoryService" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<!-- First simple JaxRS example -->
+	<bean id="customerBean" class="learn.sanga.rs.sample.MyFirstRsService" />
+	<bean id="customerBean1" class="learn.sanga.rs.sample.MySecondRsService" />
+
+	<!-- Category services -->
+	<bean id="categoryDAO" class="learn.rs.book.app.xml.CategoryDAO" />
+
+	<bean id="categoryService" class="learn.rs.book.app.xml.CategoryService">
+		<property name="categoryDAO" ref="categoryDAO" />
+
+	</bean>
+
+	
+	
+
 </beans>

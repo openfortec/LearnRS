@@ -3,7 +3,9 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 	<display-name>LearnRS Complete Guide</display-name>
 	<!-- Beans.xml used to define the service -->
 	<context-param>
@@ -28,6 +30,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CXFServlet</servlet-name>
-		<url-pattern>/rs/*</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 </web-app>
