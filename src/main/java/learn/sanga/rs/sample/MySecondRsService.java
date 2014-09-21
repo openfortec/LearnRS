@@ -10,7 +10,7 @@ public class MySecondRsService {
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String getMessage() {
-		System.out.println("HAIII");
+	
 		return "<p>Hello second RESTFUL Web Service</p>";
 	}
 }
